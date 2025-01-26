@@ -6,7 +6,6 @@ A simple Todo application to manage your daily tasks efficiently.
 
 - Add new tasks
 - View existing tasks
-- Edit tasks
 - Delete tasks
 
 ## Getting Started
