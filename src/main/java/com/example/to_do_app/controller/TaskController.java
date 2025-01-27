@@ -2,7 +2,6 @@ package com.example.to_do_app.controller;
 
 import com.example.to_do_app.entity.Task;
 import com.example.to_do_app.service.TaskService;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,18 +17,10 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-//    @GetMapping
-//    public String getTasks(Model model){
-//        List<Task> tasks = taskService.getAllTasks();
-//        model.addAttribute("tasks",tasks);
-//        return "tasks";
-//    }
-
     @GetMapping
-    public String getTasks(Model model, @RequestParam(defaultValue = "0") int page) {
-        int pageSize = 5; // Set the desired page size
-        Page<Task> taskPage = taskService.findPaginated(page, pageSize);
-        model.addAttribute("taskPage", taskPage);
+    public String getTasks(Model model){
+        List<Task> tasks = taskService.getAllTasks();
+        model.addAttribute("tasks",tasks);
         return "tasks";
     }
 
