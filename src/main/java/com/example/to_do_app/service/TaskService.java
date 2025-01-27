@@ -2,6 +2,9 @@ package com.example.to_do_app.service;
 
 import com.example.to_do_app.entity.Task;
 import com.example.to_do_app.repository.TaskRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +20,11 @@ public class TaskService {
 
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
+    }
+
+    public Page<Task> findPaginated(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        return taskRepository.findAll(pageable);
     }
 
     public void createTask(String title) {
