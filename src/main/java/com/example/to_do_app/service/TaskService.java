@@ -21,11 +21,7 @@ public class TaskService {
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
-
-    public Page<Task> findPaginated(int pageNo, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNo, pageSize);
-        return taskRepository.findAll(pageable);
-    }
+    
 
     public void createTask(String title) {
         Task task = new Task();

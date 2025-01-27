@@ -2,6 +2,7 @@ package com.example.to_do_app.controller;
 
 import com.example.to_do_app.entity.Task;
 import com.example.to_do_app.service.TaskService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,9 @@ public class TaskController {
         model.addAttribute("tasks",tasks);
         return "tasks";
     }
+
+
+
 
     @PostMapping
     public String createTask(@RequestParam String title){
